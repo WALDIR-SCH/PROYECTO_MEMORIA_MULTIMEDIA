@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pantalla de Inicio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        .subtitulo {
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-top: 15px;
+        }
+
+        .btn-iniciar {
+            margin-top: 30px;
+            font-size: 1.2em;
+            padding: 12px 25px;
+            background-color: #00c9a7;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-iniciar:hover {
+            background-color: #009e84;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¡Desafía Tu Mente con</h1>
+    <div class="subtitulo">Puzzle Play</div>
+    <button class="btn-iniciar" onclick="iniciarJuego()">INICIAR</button>
+
+    <script>
+        function iniciarJuego() {
+            // Redirige al juego principal
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
