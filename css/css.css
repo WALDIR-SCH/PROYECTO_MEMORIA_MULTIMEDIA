@@ -21,6 +21,13 @@ body {
   display: flex;
   align-items: center;
   padding: 10px 30px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  
+=======
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
   position: fixed;
   top: 0;
   left: 0;
@@ -247,11 +254,19 @@ footer {
     opacity: 1;
   }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
 
 /* Video Feature Card Styles */
 .video-feature {
     background: #fff;
     padding: 2rem;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
     border-radius: 1rem;
     max-width: 300px;
     text-align: center;
@@ -272,5 +287,13 @@ footer {
 
 .video-feature h3 {
     color: #6184db;
+<<<<<<< HEAD
     margin-bottom: 0.5rem;
 }
+=======
+    
+    margin-bottom: 0.5rem;
+}
+=======
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
