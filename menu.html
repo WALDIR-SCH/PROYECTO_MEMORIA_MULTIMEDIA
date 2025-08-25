@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <!-- FAVICON ANIMADO -->
+    <link rel="shortcut icon" href="css/icon/favicon.gif" type="image/gif" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/menu-modern.css" />
+    <link rel="stylesheet" media="(min-width: 1280px) and (max-width: 1400px) and (orientation: landscape)"
+        href="css/mediumWindows.css" />
+    <link rel="stylesheet" media="(min-width: 1024px) and (max-width: 1280px) and (orientation: landscape)"
+        href="css/smallWindows.css" />
+    <link rel="stylesheet" media="(max-width: 1024px) or (orientation: portrait)" href="css/verticalWindows.css" />
+    <!-- CSS PLUGIN INTROJS -->
+    <link rel="stylesheet" href="plugin/introJS/introjs.css" />
+    <!-- ICONOS -->
+    <link rel="stylesheet" href="css/icon/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <title>Puzzle Play - Encuentra la pareja</title>
+</head>
+
+<body>
+    <!-- TOP MENU -->
+    <div class="top-menu">
+        <img src="img/logo_puzzleplay.png" alt="Puzzle Play Logo" />
+        <span>🤍 Favoritos</span>
+        <span>👥 Jugadores</span>
+        <span>🟠 Tareas</span>
+        <button class="logout" id="menuBtn">Salir</button>
+    </div>
+
+    <!-- MAIN BAR -->
+    <div class="main-bar">
+        <div class="points-card">♥ PUNTOS</div>
+        <div class="levels-card">🗻 NIVELES</div>
+        <div class="stats-card">🌈 ESTADÍSTICAS</div>
+        <div class="leaderboard-card">🎯 CLASIFICACIÓN</div>
+        <div class="audio-card" onclick="window.location.href='audio.html'">
+            🎵 MÚSICA
+        </div>
+        <div class="video-card" onclick="window.location.href='video.html'">
+            🎥 VIDEOS
+        </div>
+    </div>
+
+    <!-- MODAL INICIAL ELEGIR DIFICULTAD - REDISEÑADO -->
+    <div id="modal" class="modalDialog">
+        <div class="modal-content-modern">
+            <div class="modal-header-modern">
+                <h2>Selecciona tu desafío</h2>
+                <p>Elige el nivel de dificultad que mejor se adapte a ti</p>
+            </div>
+            <div class="modal-body-modern">
+                <div class="difficulty-cards">
+                    <div class="difficulty-card facil">
+                        <div class="card-icon">🟢</div>
+                        <h3>Fácil</h3>
+                        <p>4x4 cartas</p>
+                        <p>Perfecto para principiantes</p>
+                        <button id="facil" class="btn-modern btn-facil">Jugar Fácil</button>
+                    </div>
+                    
+                    <div class="difficulty-card medio">
+                        <div class="card-icon">🟡</div>
+                        <h3>Medio</h3>
+                        <p>6x6 cartas</p>
+                        <p>Desafío moderado</p>
+                        <button id="medio" class="btn-modern btn-medio">Jugar Medio</button>
+                    </div>
+                    
+                    <div class="difficulty-card dificil">
+                        <div class="card-icon">🔴</div>
+                        <h3>Difícil</h3>
+                        <p>8x8 cartas</p>
+                        <p>Para expertos</p>
+                        <button id="dificil" class="btn-modern btn-dificil">Jugar Difícil</button>
+                    </div>
+                </div>
+
+            <div class="additional-options">
+                <button id="tablaPuntuaciones" class="btn-modern btn-neutral">
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                    Ver tabla de puntuaciones
+                </button>
+                <button id="ayuda" class="btn-modern btn-neutral">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    Ayuda
+                </button>
+                <button id="salirBtn" class="btn-modern btn-secondary">
+                    Salir
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL GUARDAR PARTIDA - REDISEÑADO -->
+    <div id="modalScore" class="hide">
+        <div class="modal-content-modern score-modal">
+            <div class="modal-header-modern">
+                <h2>¡Excelente trabajo!</h2>
+                <p>Guarda tu puntuación para competir con otros jugadores</p>
+            </div>
+            <div class="modal-score-body-modern">
+                <div class="score-display">
+                    <div class="score-item">
+                        <label>Nombre</label>
+                        <input id="nombreJugador" type="text" placeholder="Tu nombre" maxlength="20" />
+                    </div>
+                    <div class="score-item">
+                        <label>Puntos</label>
+                        <span id="puntosPartida" class="score-value">0</span>
+                    </div>
+                    <div class="score-item">
+                        <label>Tiempo</label>
+                        <span id="tiempoPartida" class="score-value">00:00</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="guardarJugador" class="btn-modern btn-primary">
+                        <i class="fa fa-save"></i> Guardar
+                    </button>
+                    <button id="cancelar" class="btn-modern btn-secondary">
+                        <i class="fa fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TABLA DE PUNTUACIONES - REDISEÑADO -->
+    <div id="modalTableScore" class="hide">
+        <div class="modal-content-modern leaderboard-modal">
+            <div class="modal-header-modern">
+                <h2>Tabla de puntuaciones</h2>
+                <p>Los mejores jugadores del momento</p>
+            </div>
+            <div class="modal-tscore-body-modern">
+                <div id="tPartidas" class="leaderboard-table"></div>
+                <div class="modal-actions">
+                    <button id="limpiar" class="btn-modern btn-warning">
+                        <i class="fa fa-trash"></i> Limpiar historial
+                    </button>
+                    <button id="cerrar" class="btn-modern btn-secondary">
+                        <i class="fa fa-times"></i> Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME CONTAINER - MANTENIDO CON ESTILO EXISTENTE -->
+    <div class="container">
+        <div id="numPartidas" class="numPartidas">
+            Partida nº: <span id="numPartidasValue"></span>
+        </div>
+        <div id="maxScore" class="maxPuntos">
+            Puntuación Max.: <span id="puntosMaxValue">0</span>
+        </div>
+        <div id="score" class="puntos">
+            Puntos: <span id="puntosValue">0</span>
+        </div>
+        <div id="cronometro" class="cronometro">
+            <div class="reloj" id="Minutos">00</div>
+            <div class="reloj" id="Segundos">:00</div>
+        </div>
+            <div id="wrapper" class="wrapper"></div>
+    </div>
+
+    <!-- MIMO ROBOT CHARACTER -->
+    <img class="robot" src="img/MIMO.png" alt="MIMO" />
+    <div id="robotMessage" class="robot-message"></div>
+
+    <script src="js/cronometro.js"></script>
+    <script src="js/imagenes.js"></script>
+    <script src="js/modalScore.js"></script>
+    <script src="plugin/introJS/intro.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Menu button functionality
+        document.getElementById('menuBtn').onclick = () => {
+            window.location.href = "index.html";
+        };
+    </script>
+</body>
+</html>

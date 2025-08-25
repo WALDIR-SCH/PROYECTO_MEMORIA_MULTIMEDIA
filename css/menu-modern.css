@@ -1,0 +1,529 @@
+/* MODERN MENU STYLES - Puzzle Play */
+
+/* ROOT VARIABLES */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 15px 35px rgba(0, 0, 0, 0.2);
+    
+    --border-radius: 12px;
+    --border-radius-large: 20px;
+    
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-secondary: 'good-times', sans-serif;
+}
+
+/* GLOBAL STYLES */
+body {
+    margin: 0;
+    font-family: var(--font-primary);
+    background: radial-gradient(circle at 20% 20%, #c975ff 20%, #3990f8 90%);
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* TOP MENU */
+.top-menu {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: var(--shadow-light);
+    position: relative;
+    z-index: 1000;
+}
+
+.top-menu img {
+    height: 40px;
+    margin-right: 20px;
+}
+
+.top-menu span {
+    margin-right: 30px;
+    color: #222;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.top-menu span:hover {
+    color: #667eea;
+}
+
+.top-menu .logout {
+    margin-left: auto;
+    padding: 8px 20px;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.top-menu .logout:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* MAIN BAR */
+.main-bar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.main-bar > div {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #fff;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.main-bar > div:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.points-card {
+    background: var(--success-gradient);
+}
+
+.levels-card {
+    background: var(--secondary-gradient);
+}
+
+.stats-card {
+    background: var(--accent-gradient);
+}
+
+.leaderboard-card {
+    background: var(--warning-gradient);
+}
+
+/* MODERN MODAL STYLES */
+.modalDialog {
+    display: block;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content-modern {
+    width: 90%;
+    max-width: 800px;
+    margin: 5% auto;
+    border-radius: var(--border-radius-large);
+    background: #fff;
+    box-shadow: var(--shadow-heavy);
+    overflow: hidden;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header-modern {
+    background: var(--primary-gradient);
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+.modal-header-modern h2 {
+    margin: 0 0 10px 0;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.modal-header-modern p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1em;
+}
+
+.modal-body-modern {
+    padding: 40px;
+}
+
+/* DIFFICULTY CARDS */
+.difficulty-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.difficulty-card {
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.difficulty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.card-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.difficulty-card h3 {
+    color: #333;
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+}
+
+.difficulty-card p {
+    color: #666;
+    margin: 5px 0;
+}
+
+/* MODERN BUTTONS */
+.btn-modern {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+.btn-facil {
+    background: var(--success-gradient);
+    color: #fff;
+}
+
+.btn-medio {
+    background: var(--warning-gradient);
+    color: #fff;
+}
+
+.btn-dificil {
+    background: var(--secondary-gradient);
+    color: #fff;
+}
+
+.btn-neutral {
+    background: #e9ecef;
+    color: #495057;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: #fff;
+}
+
+.btn-warning {
+    background: var(--warning-gradient);
+    color: #fff;
+}
+
+.btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-modern:active {
+    transform: translateY(0);
+}
+
+/* ADDITIONAL OPTIONS */
+.additional-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* SCORE MODAL STYLES */
+.score-modal .modal-score-body-modern {
+    padding: 40px;
+}
+
+.score-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+    color: #495057;
+}
+
+.score-item {
+    text-align: center;
+}
+
+.score-item label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.score-item input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: var(--border-radius);
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.score-value {
+    display: block;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--primary-gradient);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* LEADERBOARD MODAL */
+.leaderboard-modal .modal-tscore-body-modern {
+    padding: 40px;
+}
+
+.leaderboard-table {
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 30px;
+    max-height: 400px;
+    overflow-y: auto;
+    color: #495057;
+}
+
+/* ROBOT CHARACTER */
+.robot {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    height: 150px;
+    animation: float 3s ease-in-out infinite;
+    z-index: 999;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ROBOT MESSAGES */
+.robot-message {
+    position: fixed;
+    background: #fff;
+    color: #333;
+    padding: 15px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    font-family: var(--font-primary);
+    font-size: 1.1em;
+    font-weight: 500;
+    max-width: 250px;
+    z-index: 1000;
+    display: none;
+    animation: bounceIn 0.3s ease;
+}
+
+.robot-message::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+}
+
+.robot-message.success {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: #fff;
+}
+
+.robot-message.success::after {
+    border-top-color: #43e97b;
+}
+
+.robot-message.error {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: #fff;
+}
+
+.robot-message.error::after {
+    border-top-color: #fa709a;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive robot message positioning */
+@media (max-width: 768px) {
+    .robot-message {
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%);
+        max-width: 200px;
+        font-size: 1em;
+    }
+    
+    .robot-message::after {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .top-menu {
+        padding: 10px 15px;
+    }
+    
+    .top-menu img {
+        height: 30px;
+    }
+    
+    .top-menu span {
+        margin-right: 15px;
+        font-size: 0.9em;
+    }
+    
+    .main-bar {
+        gap: 15px;
+    }
+    
+    .main-bar > div {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    
+    .modal-content-modern {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .modal-header-modern {
+        padding: 20px;
+    }
+    
+    .modal-body-modern,
+    .modal-score-body-modern,
+    .modal-tscore-body-modern {
+        padding: 20px;
+    }
+    
+    .difficulty-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .score-display {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .top-menu .logout {
+        margin-left: 0;
+    }
+    
+    .robot {
+        height: 100px;
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+/* HIDE UTILITY */
+.hide {
+    display: none !important;
+}
+
+/* GAME BOARD STYLES */
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+}

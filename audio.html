@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PuzzlePlay - Reproductor de Audio</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/audio-player.css" />
+    <link rel="stylesheet" href="css/icon/font-awesome-4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+    <div class="top-menu">
+        <img src="img/logo_puzzleplay.png" alt="Puzzle Play Logo" />
+        <button class="logout" id="backToIndex">Salir al Inicio</button>
+    </div>
+
+    <section class="audio-gallery">
+        <div class="gallery-header">
+            <h1>Galería de Música</h1>
+            <p>Selecciona una canción para reproducir</p>
+            <div class="upload-section">
+                <input type="file" id="audioUpload" accept="audio/*" style="display: none;">
+                <button onclick="document.getElementById('audioUpload').click()" class="upload-btn">
+                    <i class="fa fa-upload"></i> Subir Audio
+                </button>
+                <span id="uploadStatus"></span>
+            </div>
+        </div>
+
+        <div class="audio-grid" id="audioGrid">
+            <!-- Songs will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <div id="audioPlayerModal" class="audio-modal hide">
+        <div class="audio-modal-content">
+            <div class="audio-modal-header">
+                <h2 id="audioTitle">Título de la Canción</h2>
+                <button id="closeAudioPlayer" class="close-btn">&times;</button>
+            </div>
+            
+            <div class="audio-player-container">
+                <audio id="mainAudioPlayer" controls>
+                    <source src="" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+                
+                <div class="audio-controls">
+                    <button id="playPauseBtn" class="control-btn">
+                        <i class="fa fa-play"></i>
+                    </button>
+                    <button id="prevAudioBtn" class="control-btn">
+                        <i class="fa fa-step-backward"></i>
+                    </button>
+                    <button id="nextAudioBtn" class="control-btn">
+                        <i class="fa fa-step-forward"></i>
+                    </button>
+                    <div class="volume-control">
+                        <button id="muteBtn" class="control-btn">
+                            <i class="fa fa-volume-up"></i>
+                        </button>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <progress id="audioProgress" value="0" max="100"></progress>
+                    <span id="currentTime">00:00</span> / 
+                    <span id="totalTime">00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/audio-player.js"></script>
+    
+    <script>
+        // Navigation functionality
+        document.getElementById('backToIndex').onclick = () => {
+            window.location.href = "index.html";
+        };
+    </script>
+</body>
+</html>
