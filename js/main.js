@@ -11,13 +11,29 @@ function grid() {
 	getMaxPuntos();
 
 	//NIVEL DIFICULTAD
-	let modal = document.getElementById("dificultadBtn");
-	let buttons = modal.childNodes;
-	buttons.forEach(button => {
-		button.onclick = dificultad;
-	});
+	document.getElementById("facil").onclick = dificultad;
+	document.getElementById("medio").onclick = dificultad;
+	document.getElementById("dificil").onclick = dificultad;
+
 	document.getElementById("tablaPuntuaciones").onclick = historialPartidas;
 	document.getElementById("ayuda").onclick = startIntro;
+
+	// LEADERBOARD BUTTON
+	let leaderboardBtn = document.querySelector(".leaderboard-card");
+	if (leaderboardBtn) {
+		leaderboardBtn.style.cursor = "pointer";
+		leaderboardBtn.onclick = function() {
+			historialPartidas();
+		};
+	}
+
+	// EXIT BUTTON IN MODAL
+	let salirBtn = document.getElementById("salirBtn");
+	if (salirBtn) {
+		salirBtn.onclick = function() {
+			window.location.href = "index.html";
+		};
+	}
 }
 
 function dificultad() {
@@ -151,6 +167,9 @@ function comprobarParejas() {
 				getMaxPuntos();
 			}
 
+			// Mostrar mensaje del robot cuando falla
+			mostrarMensajeRobot("¡Ups! No coinciden. ¡Sigue intentando!", "error");
+
 			setTimeout(
 				function () {
 					girarParejas(parejas[0], parejas[1]);
@@ -168,8 +187,50 @@ function comprobarParejas() {
 			bloquearPanel(false);
 			getMaxPuntos();
 			cronometrar();
+			
+			// Mostrar mensaje del robot cuando acierta
+			mostrarMensajeRobot("¡Excelente! ¡Encontraste una pareja perfecta! 🎉", "success");
 		}
 	}
+}
+
+// Función para mostrar mensajes del robot
+function mostrarMensajeRobot(mensaje, tipo) {
+	const robotMessage = document.getElementById('robotMessage');
+	if (!robotMessage) return;
+	
+	// Configurar el mensaje
+	robotMessage.textContent = mensaje;
+	robotMessage.className = `robot-message ${tipo}`;
+	
+	// Posicionar cerca del robot
+	const robot = document.querySelector('.robot');
+	if (robot) {
+		const robotRect = robot.getBoundingClientRect();
+		robotMessage.style.left = (robotRect.left - 200) + 'px';
+		robotMessage.style.top = (robotRect.top - 50) + 'px';
+	}
+	
+	// Mostrar con animación
+	robotMessage.style.display = 'block';
+	robotMessage.style.opacity = '0';
+	robotMessage.style.transform = 'scale(0.8)';
+	
+	// Animar entrada
+	setTimeout(() => {
+		robotMessage.style.transition = 'all 0.3s ease';
+		robotMessage.style.opacity = '1';
+		robotMessage.style.transform = 'scale(1)';
+	}, 100);
+	
+	// Ocultar después de 3 segundos
+	setTimeout(() => {
+		robotMessage.style.opacity = '0';
+		robotMessage.style.transform = 'scale(0.8)';
+		setTimeout(() => {
+			robotMessage.style.display = 'none';
+		}, 300);
+	}, 3000);
 }
 
 function girarParejas(pareja1, pareja2) {
@@ -281,4 +342,41 @@ function startIntro() {
 		exitOnOverlayClick: false
 	});
 	intro.start();
+}
+
+// MODIFIED guardarPuntuacion to show difficulty modal after leaderboard modal
+function guardarPuntuacion() {
+    document.getElementById("modalScore").setAttribute("class", "modalDialog");
+    let nuevaPartida = document.getElementById("nombreJugador");
+    nuevaPartida.value = "";
+    nuevaPartida.focus();
+
+    let lblPuntos = document.getElementById("puntosPartida");
+    lblPuntos.innerHTML = document.getElementById("puntosValue").innerHTML;
+
+    let lblTiempo = document.getElementById("tiempoPartida");
+    lblTiempo.innerHTML = document.getElementById("Minutos").innerHTML + "" + document.getElementById("Segundos").innerHTML;
+
+    document.getElementById("guardarJugador").onclick = function () {
+        let nombreJugador = document.getElementById("nombreJugador").value;
+        let fechaActual = new Date();
+        fechaActual = fechaActual.getDate() + "/" + (fechaActual.getMonth() + 1) + "/" + fechaActual.getFullYear();
+
+        if(nombreJugador == "") {
+            nombreJugador = "Sin nombre";
+        }
+        console.log(nombreJugador);
+        webStorage(new Partida(nombreJugador, lblPuntos.innerHTML, lblTiempo.innerHTML, fechaActual));
+        document.getElementById("modalScore").setAttribute("class", "hide");
+        historialPartidas();
+        // Show difficulty modal after leaderboard modal is closed
+        document.getElementById("modal").setAttribute("class", "modalDialog");
+    };
+
+    document.getElementById("cancelar").onclick = function () {
+        document.getElementById("modalScore").setAttribute("class", "hide");
+        historialPartidas();
+        // Show difficulty modal after leaderboard modal is closed
+        document.getElementById("modal").setAttribute("class", "modalDialog");
+    };
 }
