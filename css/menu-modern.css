@@ -289,7 +289,10 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     margin-bottom: 30px;
+<<<<<<< HEAD
     color: #495057;
+=======
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
 }
 
 .score-item {
@@ -335,13 +338,20 @@ body {
 }
 
 .leaderboard-table {
+<<<<<<< HEAD
     background: #f8f9fa;
+=======
+    background: #235a9d;
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
     border-radius: var(--border-radius);
     padding: 20px;
     margin-bottom: 30px;
     max-height: 400px;
     overflow-y: auto;
+<<<<<<< HEAD
     color: #495057;
+=======
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
 }
 
 /* ROBOT CHARACTER */
