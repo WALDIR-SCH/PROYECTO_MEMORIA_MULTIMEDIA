@@ -21,6 +21,16 @@ body {
   display: flex;
   align-items: center;
   padding: 10px 30px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  
+=======
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
+>>>>>>> 507347a632a409965e54f729374ccf84b038cd56
   position: fixed;
   top: 0;
   left: 0;
@@ -247,3 +257,49 @@ footer {
     opacity: 1;
   }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
+
+/* Video Feature Card Styles */
+.video-feature {
+    background: #fff;
+    padding: 2rem;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
+    border-radius: 1rem;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+
+.video-feature:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+.video-feature img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.video-feature h3 {
+    color: #6184db;
+<<<<<<< HEAD
+    margin-bottom: 0.5rem;
+}
+=======
+    
+    margin-bottom: 0.5rem;
+}
+=======
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
+>>>>>>> 507347a632a409965e54f729374ccf84b038cd56

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PuzzlePlay - Reproductor de Video</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/video-player.css" />
+    <link rel="stylesheet" href="css/icon/font-awesome-4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+    <div class="top-menu">
+        <img src="img/logo_puzzleplay.png" alt="Puzzle Play Logo" />
+        <button class="logout" id="backToIndex">Salir al Inicio</button>
+    </div>
+
+    <section class="video-gallery">
+        <div class="gallery-header">
+            <h1>Galería de Videos</h1>
+            <p>Selecciona un video para reproducir</p>
+            <div class="upload-section">
+                <input type="file" id="videoUpload" accept="video/*" style="display: none;">
+                <button onclick="document.getElementById('videoUpload').click()" class="upload-btn">
+                    <i class="fa fa-upload"></i> Subir Video
+                </button>
+                <span id="uploadStatus"></span>
+            </div>
+        </div>
+
+        <div class="videos-grid" id="videosGrid">
+            <!-- Videos will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <div id="videoPlayerModal" class="video-modal hide">
+        <div class="video-modal-content">
+            <div class="video-modal-header">
+                <h2 id="videoTitle">Título del Video</h2>
+                <button id="closeVideoPlayer" class="close-btn">&times;</button>
+            </div>
+            
+            <div class="video-player-container">
+                <video id="mainVideoPlayer" controls>
+                    <source src="" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+                
+                <div class="video-controls">
+                    <button id="playPauseBtn" class="control-btn">
+                        <i class="fa fa-play"></i>
+                    </button>
+                    <button id="rewindBtn" class="control-btn">
+                        <i class="fa fa-backward"></i>
+                    </button>
+                    <button id="forwardBtn" class="control-btn">
+                        <i class="fa fa-forward"></i>
+                    </button>
+                    <div class="volume-control">
+                        <button id="muteBtn" class="control-btn">
+                            <i class="fa fa-volume-up"></i>
+                        </button>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <progress id="videoProgress" value="0" max="100"></progress>
+                    <span id="currentTime">00:00</span> / 
+                    <span id="totalTime">00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/video-player.js"></script>
+    
+    <script>
+        // Navigation functionality
+        document.getElementById('backToIndex').onclick = () => {
+            window.location.href = "index.html";
+        };
+    </script>
+</body>
+</html>

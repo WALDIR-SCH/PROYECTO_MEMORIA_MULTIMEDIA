@@ -289,6 +289,17 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     margin-bottom: 30px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    color: #495057;
+=======
+<<<<<<< HEAD
+    color: #495057;
+=======
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
+>>>>>>> 507347a632a409965e54f729374ccf84b038cd56
 }
 
 .score-item {
@@ -334,12 +345,35 @@ body {
 }
 
 .leaderboard-table {
+<<<<<<< HEAD
     background: #f8f9fa;
+=======
+<<<<<<< HEAD
+    background: #f8f9fa;
+=======
+<<<<<<< HEAD
+    background: #f8f9fa;
+=======
+    background: #235a9d;
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
+>>>>>>> 507347a632a409965e54f729374ccf84b038cd56
     border-radius: var(--border-radius);
     padding: 20px;
     margin-bottom: 30px;
     max-height: 400px;
     overflow-y: auto;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    color: #495057;
+=======
+<<<<<<< HEAD
+    color: #495057;
+=======
+>>>>>>> fb5b5e8be1186b0a01108717b6e319715914abdb
+>>>>>>> 73d69397578a9247f36147cab730285b6e39e5ef
+>>>>>>> 507347a632a409965e54f729374ccf84b038cd56
 }
 
 /* ROBOT CHARACTER */
